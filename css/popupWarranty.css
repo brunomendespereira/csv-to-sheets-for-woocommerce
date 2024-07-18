@@ -1,0 +1,107 @@
+#popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: none; /* Inicialmente oculto */
+    z-index: 1000; /* Garante que o popup fique sobre outros elementos */
+    overflow-x: auto; /* Adicionado para permitir a rolagem horizontal, se necessário */
+}
+
+#popup .popup-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#popup.popup-visible {
+    display: block; /* Mostra o popup */
+}
+
+#closePopup, #submitWarrantyRequest {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#submitWarrantyRequest {
+    background-color: #00cc00;
+}
+
+#closePopup:hover {
+    background-color: #cc0000;
+}
+
+#submitWarrantyRequest:hover {
+    background-color: #009900;
+}
+
+#selected-items-container {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 160px; /* Limita a altura para aproximadamente 3 linhas */
+    overflow-y: auto; /* Adiciona a rolagem vertical se necessário */
+}
+
+#selected-items-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#selected-items-container th, #selected-items-container td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+    font-weight: 400;
+    position: relative;
+}
+
+#selected-items-container th {
+    background-color: #333;
+    color: #e2e2e2;
+}
+
+#selected-items-container td {
+    background-color: #2b2b2b;
+    white-space: nowrap;
+}
+
+#selected-items-container tr:nth-child(even) td {
+    background-color: #3b3b3b;
+}
+
+#popup p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.justification-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #444;
+    background-color: #2b2b2b;
+    color: #e2e2e2;
+    border-radius: 3px;
+}
+
+.popup-number-column {
+    width: 5%; /* Ajuste a largura conforme necessário */
+}
+
+.popup-email-column,
+.popup-password-column {
+    width: auto; /* Ajuste automático conforme necessário */
+}
+
+.popup-justification-column {
+    width: 22%; /* Ajuste a largura conforme necessário */
+}

@@ -1,0 +1,77 @@
+.pedido-container {
+    padding: 20px;
+    background-color: #11141A;
+    color: #e2e2e2;
+    font-family: 'Neue Haas Grotesk Display Pro', Arial, sans-serif;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.pedido-container p {
+    margin: 0 0 15px;
+    font-weight: 500;
+}
+
+.pedido-container h3 {
+    margin: 0 0 15px;
+    font-weight: 500;
+}
+
+.pedido-container strong {
+    color: #ffffff;
+}
+
+hr {
+    border: 1px solid #444;
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+    font-weight: 400;
+    position: relative;
+}
+
+th {
+    background-color: #333;
+    color: #e2e2e2;
+}
+
+td {
+    background-color: #2b2b2b;
+}
+
+tr:nth-child(even) td {
+    background-color: #3b3b3b;
+}
+
+.checkbox-column {
+    background-color: #11141A; /* Cor de fundo específica para a coluna 1 */
+    width: 5%; /* Ajuste a largura conforme necessário */
+}
+
+.number-column {
+    background-color: #2b2b2b; /* Cor de fundo específica para a coluna 2 */
+    width: 5%; /* Ajuste a largura conforme necessário */
+}
+
+.requestWarranty {
+    width: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+.copy-icon {
+    cursor: pointer;
+    color: #ffffff;
+    position: absolute;
+    right: 10px;
+}
