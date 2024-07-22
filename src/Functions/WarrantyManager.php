@@ -12,22 +12,22 @@ class WarrantyManager {
         if (!isset($_POST['order_id']) || !isset($_POST['items'])) {
             wp_die('Dados inválidos.');
         }
-
+    
         // Capturar o número do pedido e itens do formulário
         $order_id = intval($_POST['order_id']);
         $items = $_POST['items']; // Array de índices e justificativas
-
+    
         // Construir o caminho do arquivo CSV
         $upload_dir = wp_upload_dir();
         $csv_path = $upload_dir['basedir'] . '/order_csvs/order_' . $order_id . '.csv';
-
+    
         if (!file_exists($csv_path)) {
             wp_die('Arquivo CSV não encontrado.');
         }
-
+    
         // Carregar os dados do CSV
         $csv_data = array_map('str_getcsv', file($csv_path));
-
+    
         // Atualizar as linhas solicitadas
         foreach ($items as $exchange_item) {
             $index = intval($exchange_item['index']);
@@ -36,18 +36,18 @@ class WarrantyManager {
                 $csv_data[$index][] = 'troca_solicitada=' . $justification;
             }
         }
-
+    
         // Salvar os dados atualizados de volta no CSV
         $handle = fopen($csv_path, 'w');
         foreach ($csv_data as $row) {
             fputcsv($handle, $row);
         }
         fclose($handle);
-
-        // Redirecionar para a página de confirmação do pedido
-        wp_redirect(wc_get_endpoint_url('order-received', $order_id, wc_get_checkout_url()));
+    
+        // Redirecionar para a URL atual
+        wp_redirect($_SERVER['HTTP_REFERER']);
         exit;
-    }
+    }    
 }
 
 new WarrantyManager();
