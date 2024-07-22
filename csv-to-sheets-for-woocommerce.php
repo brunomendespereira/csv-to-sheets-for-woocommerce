@@ -2,8 +2,8 @@
 /**
  * Plugin Name: CSV to Sheets for WooCommerce
  * Description: Facilita a venda de dados através de arquivos CSV e utiliza produtos baixáveis do WooCommerce para gerar planilhas no Google Sheets.
- * Version: 1.0
- * Author: Bruno Mendes, Vulgo Zé Ganhão
+ * Version: 1.2
+ * Author: Bruno Mendes e Diogo Costa
  * Plugin URI: [URL do seu site ou página do plugin, se disponível]
  */
 
