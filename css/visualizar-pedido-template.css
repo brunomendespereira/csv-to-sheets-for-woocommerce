@@ -77,5 +77,9 @@ tr:nth-child(even) td {
 }
 
 .exchange-requested {
-    background-color: #bbbb46;
+    background-color: yellow; /* Define a cor de fundo amarela para linhas com troca solicitada */
+}
+
+table tr:hover td {
+    background-color: unset; /* Desativa a cor de fundo para o hover das linhas */
 }
