@@ -75,3 +75,7 @@ tr:nth-child(even) td {
     position: absolute;
     right: 10px;
 }
+
+.exchange-requested {
+    background-color: yellow; /* Define a cor de fundo amarela para linhas com troca solicitada */
+}
