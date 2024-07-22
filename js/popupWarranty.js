@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitWarrantyRequestButton = document.getElementById('submitWarrantyRequest');
     const selectedItemsContainer = document.getElementById('selected-items-container');
     const selectedCount = document.getElementById('selected-count');
+    const warrantyForm = document.getElementById('warranty-form');
 
-    if (!popup || !submitWarrantyRequestButton || !selectedItemsContainer || !selectedCount) {
+    if (!popup || !submitWarrantyRequestButton || !selectedItemsContainer || !selectedCount || !warrantyForm) {
         console.error('Elemento popup ou algum elemento necessário não encontrado');
         return;
     }
@@ -21,12 +22,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    submitWarrantyRequestButton.addEventListener('click', function() {
+    submitWarrantyRequestButton.addEventListener('click', function(event) {
         if (!validateForm()) {
+            event.preventDefault();
             alert('Por favor, preencha o motivo de todos os campos.');
             return;
         }
-        // Adicione aqui a lógica para enviar o formulário
+
+        // Adicionar inputs hidden para cada item selecionado
+        const selectedItems = selectedItemsContainer.querySelectorAll('tr');
+        selectedItems.forEach((row) => {
+            const index = row.dataset.index;
+            const justification = row.querySelector('.justification-input').value;
+            const inputIndex = document.createElement('input');
+            inputIndex.type = 'hidden';
+            inputIndex.name = `items[${index}][index]`;
+            inputIndex.value = index;
+
+            const inputJustification = document.createElement('input');
+            inputJustification.type = 'hidden';
+            inputJustification.name = `items[${index}][justification]`;
+            inputJustification.value = justification;
+
+            warrantyForm.appendChild(inputIndex);
+            warrantyForm.appendChild(inputJustification);
+        });
     });
 
     function addSelectedItem(row) {
@@ -47,10 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
         clone.appendChild(justificationCell);
 
         // Adicionar classes genéricas às colunas do popup
-for (let i = 0; i < clone.children.length; i++) {
-    clone.children[i].classList.add('popup-column-' + i);
-}
-justificationCell.classList.add('popup-justification-column');
+        for (let i = 0; i < clone.children.length; i++) {
+            clone.children[i].classList.add('popup-column-' + i);
+        }
+        justificationCell.classList.add('popup-justification-column');
 
         // Define explicitamente a largura das células clonadas
         const originalCells = row.children;
