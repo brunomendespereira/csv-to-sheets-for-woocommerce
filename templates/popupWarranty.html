@@ -1,13 +1,17 @@
 <div id="popup" class="popup-hidden">
     <div class="popup-container">
         <h3>Solicitar Garantia: <span id="selected-count">0</span> Itens Selecionados</h3>
-        <div id="selected-items-container">
-            <table>
-                <tbody>
-                    <!-- Linhas selecionadas serão adicionadas aqui -->
-                </tbody>
-            </table>
-        </div>
-        <button id="submitWarrantyRequest">Solicitar Garantia</button>
+        <form id="warranty-form" method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>">
+            <input type="hidden" name="action" value="process_warranty_request">
+            <input type="hidden" name="order_id" value="<?php echo esc_attr($order_id); ?>">
+            <div id="selected-items-container">
+                <table>
+                    <tbody>
+                        <!-- Linhas selecionadas serão adicionadas aqui -->
+                    </tbody>
+                </table>
+            </div>
+            <button type="submit" id="submitWarrantyRequest">Solicitar Garantia</button>
+        </form>
     </div>
 </div>
