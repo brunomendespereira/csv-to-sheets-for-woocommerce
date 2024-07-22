@@ -30,13 +30,28 @@ if (file_exists($popup_template_path)) {
             </tr>
         </thead>
         <tbody>
-            <?php for ($i = 2; $i < count($csv_data); $i++) { ?>
-                <tr data-index="<?php echo $i; ?>">
+            <?php 
+            for ($i = 2; $i < count($csv_data); $i++) { 
+                $is_exchange_requested = false;
+                foreach ($csv_data[$i] as $cell) {
+                    if (strpos($cell, 'troca_solicitada=') !== false) {
+                        $is_exchange_requested = true;
+                        break;
+                    }
+                }
+            ?>
+                <tr data-index="<?php echo $i; ?>" class="<?php echo $is_exchange_requested ? 'exchange-requested' : ''; ?>">
                     <td class="checkbox-column"><input type="checkbox" class="requestWarranty"></td>
                     <td class="number-column"><?php echo $i - 1; ?></td>
-                    <?php foreach ($csv_data[$i] as $cell) { ?>
-                        <td><?php echo esc_html($cell); ?> <i class="fas fa-copy copy-icon" onclick="copyCell(this)"></i></td>
-                    <?php } ?>
+                    <?php 
+                    foreach ($csv_data[$i] as $cell) { 
+                        if (strpos($cell, 'troca_solicitada=') === false) { // Não exibir a célula "troca_solicitada"
+                    ?>
+                            <td><?php echo esc_html($cell); ?> <i class="fas fa-copy copy-icon" onclick="copyCell(this)"></i></td>
+                    <?php 
+                        }
+                    } 
+                    ?>
                 </tr>
             <?php } ?>
         </tbody>
