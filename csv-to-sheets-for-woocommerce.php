@@ -58,6 +58,9 @@ require_once plugin_dir_path(__FILE__) . 'src/Functions/WarrantyDisplay.php';
 // Inclui a classe OrderHandler para criar a planilha do pedido
 require_once plugin_dir_path(__FILE__) . 'src/Functions/OrderHandler.php';
 
+// Inclui o arquivo WarrantyManager.php
+require_once plugin_dir_path(__FILE__) . 'src/Functions/WarrantyManager.php';
+
 
 // Filtrar os itens de download do WooCommerce
 add_filter('woocommerce_order_get_downloadable_items', 'substituir_links_download', 10, 2);
