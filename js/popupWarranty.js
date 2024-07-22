@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
         justificationCell.appendChild(justificationInput);
         clone.appendChild(justificationCell);
 
-        // Define classes específicas para as colunas do popup
-        clone.children[0].classList.add('popup-number-column');
-        clone.children[1].classList.add('popup-email-column');
-        clone.children[2].classList.add('popup-password-column');
-        justificationCell.classList.add('popup-justification-column');
+        // Adicionar classes genéricas às colunas do popup
+for (let i = 0; i < clone.children.length; i++) {
+    clone.children[i].classList.add('popup-column-' + i);
+}
+justificationCell.classList.add('popup-justification-column');
 
         // Define explicitamente a largura das células clonadas
         const originalCells = row.children;
