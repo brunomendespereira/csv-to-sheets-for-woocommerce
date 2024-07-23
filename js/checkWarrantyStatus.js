@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var warrantyValidUntil = document.getElementById('warranty-valid-until').value;
         var warrantyDate = new Date(warrantyValidUntil);
         var currentDate = new Date();
+        console.log( warrantyDate.getTime(), currentDate.getTime());
+        console.log( warrantyDate.getTime() - currentDate.getTime());
         var timeDifference = warrantyDate.getTime() - currentDate.getTime();
 
         if (timeDifference > 0) {
