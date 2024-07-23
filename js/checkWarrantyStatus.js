@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function scheduleWarrantyCheck() {
-        var warrantyValidUntil = document.getElementById('warranty-valid-until').textContent;
-        var warrantyDate = new Date(warrantyValidUntil.replace(/-/g, '/'));
+        var warrantyValidUntil = document.getElementById('warranty-valid-until').value;
+        var warrantyDate = new Date(warrantyValidUntil);
         var currentDate = new Date();
-        var timeDifference = warrantyDate - currentDate;
+        var timeDifference = warrantyDate.getTime() - currentDate.getTime();
 
         if (timeDifference > 0) {
             setTimeout(function() {
