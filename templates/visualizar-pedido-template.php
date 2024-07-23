@@ -16,7 +16,7 @@ if (file_exists($popup_template_path)) {
 <div class="pedido-container">
     <p><strong>Produto:</strong> <?php echo esc_html($csv_data[0][0]); ?></p>
     <p><strong>Nº Pedido:</strong> <?php echo esc_html($csv_data[0][1]); ?></p>
-    <p><strong>Garantia:</strong> Válida até - <span date-end="<?= "2024-08-01"; ?>" id="warranty-valid-until"><?php echo esc_html($csv_data[0][4]); ?></span> - <span id="warranty-status"></span></p>
+    <p><strong>Garantia:</strong> Válida até - <span date-end="<?php echo "2024-08-01"; ?>" id="warranty-valid-until"><?php echo esc_html($csv_data[0][4]); ?></span> - <span id="warranty-status"></span></p>
     <hr>
     <h3><?php echo esc_html($csv_data[0][0]); ?>: Quantidade - <?php echo esc_html($csv_data[0][5]); ?> Und.</h3>
     <table class="table-original">
