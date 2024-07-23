@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     function updateWarrantyStatus() {
-        var warrantyValidUntil = document.getElementById('warranty-valid-until').textContent;
-        var warrantyDate = new Date(warrantyValidUntil.replace(/-/g, '/'));
+        var warrantyValidUntil = document.getElementById('warranty-valid-until').value;
+        var warrantyDate = new Date(warrantyValidUntil);
         var currentDate = new Date();
 
-        if (currentDate <= warrantyDate) {
+        if (currentDate.getTime() <= warrantyDate.getTime()) {
             document.getElementById('warranty-status').textContent = "Ativa";
             document.getElementById('warranty-status').style.color = 'green';
             activateCheckboxes(true); // Ativa os checkboxes
