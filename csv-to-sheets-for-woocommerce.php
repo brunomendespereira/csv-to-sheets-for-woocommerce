@@ -15,7 +15,6 @@ if (!defined('WPINC')) {
 // Adiciona o shortcode de status à área administrativa
 add_shortcode('shortcode_status_connection', function() {
     return \GoogleSheetsIntegration\Functions\StatusConnection::statusConnection();
-    exit;
 });
 
 
