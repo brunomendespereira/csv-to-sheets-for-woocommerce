@@ -17,7 +17,8 @@ if (file_exists($popup_template_path)) {
     <p><strong>Produto:</strong> <?php echo esc_html($csv_data[0][0]); ?></p>
     <p><strong>Nº Pedido:</strong> <?php echo esc_html($csv_data[0][1]); ?></p>
     <p><strong>Garantia:</strong> Válida até - 
-    <span id="warranty-valid-until" data-end="2024-08-01" >
+    <span>
+        <input type="hidden" id="warranty-valid-until" value="2024-08-01">
         <?php echo esc_html($csv_data[0][4]); ?>
     </span> - <span id="warranty-status"></span></p>
     <hr>
